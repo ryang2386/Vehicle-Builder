@@ -293,11 +293,11 @@ class Cli {
       ])
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
-        if (answers.vehicle === 'Truck') {
+        if (answers.vehicles.vin === this.selectedVehicleVin) {
           console.log('The truck cannot tow itself');
           this.performActions();
         } else {
-          answers.vehicle.tow(answers.vehicle);
+          answers.vehicles.tow(answers.vehicle);
           this.performActions();
         }
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
@@ -324,6 +324,8 @@ class Cli {
             'Turn left',
             'Reverse',
             'Select or create another vehicle',
+            'Tow',
+            'Wheelie',
             'Exit',
           ],
         },
@@ -388,6 +390,19 @@ class Cli {
           }
         }
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
+        if (answers.action === 'Tow') {
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              if (this.vehicles[i] instanceof Truck) {
+                this.findVehicleToTow();
+                return;
+              } else {
+                console.log('Vehicle is not a truck. Therefore, it cannot be towed.');
+                this.performActions();
+              }
+            }
+          }
+        }
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
         else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle
