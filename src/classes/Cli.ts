@@ -305,6 +305,11 @@ class Cli {
       });
   }
 
+  performWheelie(motorbike : Motorbike): void {
+    motorbike.wheelie();
+    this.performActions();
+  }
+
   // method to perform actions on a vehicle
   performActions(): void {
     inquirer
@@ -416,8 +421,8 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               if (this.vehicles[i] instanceof Motorbike) {
-                answers.vehicles.wheelie();
-                this.performActions();
+                this.performWheelie(this.vehicles[i] as Motorbike);
+                return;
               } else {
                 console.log('Vehicle is not a motorbike. Therefore, it cannot do a wheelie.');
                 this.performActions();
