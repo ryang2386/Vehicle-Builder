@@ -293,11 +293,12 @@ async findVehicleToTow(truck : Truck): Promise<void> {
       ])
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
-        if (answers.vehicles instanceof Truck) {
+        // console.log(answers.vehicleToTow);
+        if (answers.vehicleToTow instanceof Truck) {
           console.log('The truck cannot tow itself');
           this.performActions();
         } else {
-          truck.tow(answers.vehicle);
+          truck.tow(answers.vehicleToTow);
           this.performActions();
         }
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
