@@ -276,7 +276,7 @@ class Cli {
 
   // method to find a vehicle to tow
   // TODO: add a parameter to accept a truck object
-  findVehicleToTow(): void {
+  findVehicleToTow(truck : Truck): void {
     inquirer
       .prompt([
         {
@@ -293,11 +293,11 @@ class Cli {
       ])
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
-        if (answers.vehicles.vin === this.selectedVehicleVin) {
+        if (answers.vehicles instanceof Truck) {
           console.log('The truck cannot tow itself');
           this.performActions();
         } else {
-          answers.vehicles.tow(answers.vehicle);
+          truck.tow(answers.vehicle);
           this.performActions();
         }
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
@@ -337,6 +337,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].printDetails();
+              this.performActions();
             }
           }
         } else if (answers.action === 'Start vehicle') {
@@ -344,6 +345,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].start();
+              this.performActions();
             }
           }
         } else if (answers.action === 'Accelerate 5 MPH') {
@@ -351,6 +353,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].accelerate(5);
+              this.performActions();
             }
           }
         } else if (answers.action === 'Decelerate 5 MPH') {
@@ -358,6 +361,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].decelerate(5);
+              this.performActions();
             }
           }
         } else if (answers.action === 'Stop vehicle') {
@@ -365,6 +369,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].stop();
+              this.performActions();
             }
           }
         } else if (answers.action === 'Turn right') {
@@ -372,6 +377,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].turn('right');
+              this.performActions();
             }
           }
         } else if (answers.action === 'Turn left') {
@@ -379,6 +385,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].turn('left');
+              this.performActions();
             }
           }
         } else if (answers.action === 'Reverse') {
@@ -386,6 +393,7 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].reverse();
+              this.performActions();
             }
           }
         }
@@ -394,10 +402,10 @@ class Cli {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               if (this.vehicles[i] instanceof Truck) {
-                this.findVehicleToTow();
+                this.findVehicleToTow(this.vehicles[i] as Truck);
                 return;
               } else {
-                console.log('Vehicle is not a truck. Therefore, it cannot be towed.');
+                console.log('Vehicle is not a truck. Therefore, it cannot tow other vehicles.');
                 this.performActions();
               }
             }
