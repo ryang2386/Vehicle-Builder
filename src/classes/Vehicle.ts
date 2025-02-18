@@ -74,6 +74,7 @@ class Vehicle implements Driveable {
       console.log('Start the vehicle first');
     }
   }
+  
 }
 
 // Export the Vehicle class
