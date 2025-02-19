@@ -41,7 +41,7 @@ class Car extends Vehicle {
     // If not, create 4 new Wheel objects
     // Otherwise, use the provided wheels array
     if (wheels.length !== 4) {
-      this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
+      this.wheels = [new Wheel(19, "Firestone"), new Wheel(19, "Firestone"), new Wheel(19, "Firestone"), new Wheel(19, "Firestone")];
     } else {
       this.wheels = wheels;
     }

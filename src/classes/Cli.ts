@@ -259,11 +259,12 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          [
+          answers.wheels = [
             new Wheel(parseInt(answers.frontWheelDiameter), answers.frontWheelBrand),
             new Wheel(parseInt(answers.rearWheelDiameter), answers.rearWheelBrand),
           ]
         );
+        console.log(answers);
         // TODO: Use the answers object to pass the required properties to the Motorbike constructor
         // TODO: push the motorbike to the vehicles array
         this.vehicles.push(motorbike);

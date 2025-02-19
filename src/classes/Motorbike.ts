@@ -29,9 +29,12 @@ class Motorbike extends Vehicle {
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
-    this.wheels = wheels;
     if (wheels.length !== 2) {
-      this.wheels = [new Wheel(), new Wheel()];
+      this.wheels = [new Wheel(16, "Goodyear"), new Wheel(16, "Goodyear")];
+      console.log(this.wheels);
+    } else {
+      this.wheels = wheels;
+      console.log(this.wheels);
     }
   }
   // TODO: Implement the wheelie method
@@ -61,7 +64,12 @@ class Motorbike extends Vehicle {
     console.log(`Motorbike Weight: ${this.weight}`);
     console.log(`Motorbike Top Speed: ${this.topSpeed}`);
     console.log(`Motorbike Color: ${this.color}`);
-    console.log(`Motorbike Wheels: ${this.wheels}`);
+    console.log(
+      `Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
+    );
   }
 }
 
