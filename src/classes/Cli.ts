@@ -264,7 +264,6 @@ class Cli {
             new Wheel(parseInt(answers.rearWheelDiameter), answers.rearWheelBrand),
           ]
         );
-        console.log(answers);
         // TODO: Use the answers object to pass the required properties to the Motorbike constructor
         // TODO: push the motorbike to the vehicles array
         this.vehicles.push(motorbike);

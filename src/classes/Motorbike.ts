@@ -31,10 +31,8 @@ class Motorbike extends Vehicle {
     this.topSpeed = topSpeed;
     if (wheels.length !== 2) {
       this.wheels = [new Wheel(16, "Goodyear"), new Wheel(16, "Goodyear")];
-      console.log(this.wheels);
     } else {
       this.wheels = wheels;
-      console.log(this.wheels);
     }
   }
   // TODO: Implement the wheelie method
