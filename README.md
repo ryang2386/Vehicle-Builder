@@ -24,7 +24,7 @@ Do you want to have fun creating your own vehicle and performing several actions
 First, install Typescript in your Terminal by typing "npm install -D typescript". Once Typescript is installed, install the inquirer package by typing in "npm i inquirer". After the inquirer package is installed, type "npm start" to run the program.
 
  ## Usage
-This project can be used by anyone who wants to have some fun creating different vehicles, such as a car, truck, or motorbike, and performing several actions with it. Also, each vehicle has actions that only it can perform (for example: only a truck can tow other vehicles). If you want to see this program in action, please view this demonstration video: https://drive.google.com/file/d/148ecjUa0ovdcW9h-QtjT2LyV6MBqXczd/view
+This project can be used by anyone who wants to have some fun creating different vehicles, such as a car, truck, or motorbike, and performing several actions with it. Also, each vehicle has actions that only it can perform (for example: only a truck can tow other vehicles). If you want to see this program in action, please view this demonstration video: https://drive.google.com/file/d/1Kd-Zmq-diTKhaS-Q-dddMPCCoG1WxiHc/view
 
  ## Contribution
  Contributions are always welcome. I'm always open to ideas on how to improve my projects, so please feel free to fork the repo and create a pull request! Also, thank you to Columbia Engineering Boot Camp for providing code for me to work with and improve.
