@@ -63,10 +63,14 @@ class Vehicle implements Driveable {
   // Method to turn the vehicle
   turn(direction: string): void {
     // Check if the vehicle is started
-    if (this.started) {
-      console.log(`Vehicle turned ${direction}`);
+    if (this.currentSpeed > 0) {
+      if (this.started) {
+        console.log(`Vehicle turned ${direction}`);
+      } else {
+        console.log('Start the vehicle first');
+      }
     } else {
-      console.log('Start the vehicle first');
+      console.log('Cannot turn the vehicle when it is not moving.');
     }
   }
 
